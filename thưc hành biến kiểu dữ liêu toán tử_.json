@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "kernelspec": {
+      "name": "python",
+      "display_name": "Python (Pyodide)",
+      "language": "python"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "python",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.8"
+    }
+  },
+  "nbformat_minor": 4,
+  "nbformat": 4,
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": "Bài 1 Viết chương trình nhâp vào 2 số nguyên num1 và num2 . ln ra tích của 2 số nguyên ",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [],
+      "execution_count": null
+    },
+    {
+      "cell_type": "code",
+      "source": "num1 = int (input (\" please enter num1 :\") \n num2 = int (input (\"please enter num2 :\")\n  result = num1 *num2 \nprint (f\"{num1} *{num2} = {result}\") \nplease enter num1 :10\nplease enter num2 : 5 \n10*5=50",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [],
+      "execution_count": null
+    },
+    {
+      "cell_type": "code",
+      "source": "Bài 2 Nhâp vào ba bien diem-toan, diem-ly,diem-hoa và in ra điểm trung bình của ba môn hoc trên ",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [],
+      "execution_count": null
+    },
+    {
+      "cell_type": "code",
+      "source": "diem-toan = float (input (\"nhâp điểm toán \")\ndiem-ly = float (input (\" Nhâp điểm lý \") \ndiem-hoa = float (input (\" Nhâp điểm hóa \") \ndiem-trung-binh = (diem-toan+diem-ly+diem-hoa) /3\nprint (f\" Điểm trung bình là { diem-trung-binh} \") \nnhâp điểm toán :6\nnhâp điểm lý :7\nnhâp điểm hóa :8 \n Điểm trung bình là : 7.0",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [],
+      "execution_count": null
+    },
+    {
+      "cell_type": "code",
+      "source": "Bài 3 Nhâp vào vân tốc của đoàn tàu theo đơn vi km/h \na Hỏi trung bình mỗi phút đoàn tàu đi đươc bao nhiêu mét ? \nb Sau 1 giờ 2 phút đoàn tàu đi đươc bao nhiêu km ? ",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [],
+      "execution_count": null
+    },
+    {
+      "cell_type": "code",
+      "source": "v-kmph = int (input (\" Nhâp vân tốc đoàn tàu theo đơn vi km/h :\")) \n#a \nv-mpm = v-kmph * 1000/60 \nprint (f\" Quãng đường tàu đi trong môt phút : {v-mpm} m\") \n#b \ns-72-min = v-kmph / 60*72 \nprint (f\" Quãng đường tàu đi sau 1h12m : { s-72-min} km\") \nNhâp vân tốc đoàn tàu theo đơn vi km/h :33\nQuãng đường tàu đi trong môt phút : 550.0m \nQuãng đường tàu đi sau 1h12m: 39.6 km ",
+      "metadata": {
+        "trusted": true
+      },
+      "outputs": [],
+      "execution_count": null
+    }
+  ]
+}
