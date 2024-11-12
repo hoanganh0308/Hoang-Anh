@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký thông tin người dùng</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+        
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header, main, footer {
+    padding: 10px;
+}
+
+header {
+    background-color: beige;
+    text-align: center;
+}
+
+header h2 {
+    margin: 0;
+}
+
+.logo, .slogan, .banner {
+    display: inline-block;
+    padding: 10px;
+}
+
+main form {
+    margin-bottom: 20px;
+}
+
+main label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+main input[type="text"], main input[type="email"], main textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+main input[type="radio"], main input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+main button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+main button:hover {
+    background-color: #45a049;
+}
+
+.hidden {
+    display: none;
+}
+body #container main #registrationForm h2 {
+  text-align: center;
+}
+body div table th{
+  text-align: center;
+}
+
+    </style>
+</head>
+<body>
+  <div>
+    <table style="background-color: rgb(255, 115, 0);">
+      <th> </th>
+      <th></th>
+      <th style="font-size: 33px; ">Trường Đại học FPT </th>
+      <th></th>
+      <th></th>
+
+  </table>
+  </div>
+    <div class="container">
+        <header>
+            <div class="logo">Logo</div>
+            <div class="slogan">Slogan</div>
+            <div class="banner">Banner</div>
+        </header>
+        <main>
+            <form id="registrationForm" onsubmit="return validateForm()">
+                <h2>Đăng ký thông tin người dùng</h2>
+                <div>
+                    <label for="fullName">Họ và tên:</label>
+                    <input type="text" id="fullName" required maxlength="50">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div>
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" required>
+                </div>
+                <div>
+                    <label>Giới tính:</label>
+                    <input type="radio" name="gender" value="male" required> Nam
+                    <input type="radio" name="gender" value="female" required> Nữ
+                </div>
+                <div>
+                    <label>Sở thích:</label>
+                    <input type="checkbox" name="hobbies" value="Thể thao"> Thể thao
+                    <input type="checkbox" name="hobbies" value="Phim ảnh"> Phim ảnh
+                    <input type="checkbox" name="hobbies" value="Đọc sách"> Đọc sách
+                    <input type="checkbox" name="hobbies" value="Âm nhạc"> Âm nhạc
+                    <input type="checkbox" name="hobbies" value="Khác"> Khác
+                </div>
+                <div>
+                    <label for="intro">Giới thiệu bản thân:</label>
+                    <textarea id="intro" rows="4"></textarea>
+                </div>
+                <button type="submit">Đăng ký</button>
+            </form>
+            <div id="userInfo" class="hidden">
+                <h2>Thông tin người dùng</h2>
+                <p id="fullNameDisplay"></p>
+                <p id="emailDisplay"></p>
+                <p id="phoneDisplay"></p>
+                <p id="genderDisplay"></p>
+                <p id="hobbiesDisplay"></p>
+                <p id="introDisplay"></p>
+            </div>
+        </main>
+        <footer>
+            <p>Sinh viên: Vũ Hoàng Anh </p>
+            <p>Email: nam.vuduc1977@.com</p>
+            <p>Lớp: T2409M</p>
+        </footer>
+    </div>
+
+    <script src="bktr.js"></script>
+</body>
+</html>
