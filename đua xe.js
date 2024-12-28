@@ -1,86 +1,124 @@
-Car.prototype.handleInput = function(keyStates){
-    if(keyStates[Keys.UP_ARROW])
-    {
-        this.speed += this.acceleration;
-        if(this.speed > this.maxspeed)
-            this.speed = this.maxspeed;
-    }else if(keyStates[Keys.DOWN_ARROW])
-    {
-        this.speed -= this.acceleration;
-        if(this.speed < this.minspeed)
-            this.speed = this.minspeed;
-    }
- 
-    if(keyStates[Keys.LEFT_ARROW])
-        this.angle -= this.rotationAngle;
-    if(keyStates[Keys.RIGHT_ARROW])
-        this.angle += this.rotationAngle;
-    // keep the angle as small  as possible
-    this.angle = this.angle % _360_RADIAN;
-    // decrease the speed base on the friction
-    this.speed *= (1 - this.friction);
-    if(Math.abs(this.speed)<0.1)
-        this.speed = 0;
-}
-Car.prototype.update = function(){
-    var cos = Math.cos(this.angle);
-    var sin = Math.sin(this.angle);
- 
-    if(this.speed!=0)
-    {
-        // move
-        this.cx += cos*this.speed;
-        this.cy += sin*this.speed;
-        if(this.cx<0)
-            this.cx = 0;
-        else if(this.cx>this.mapWidth)
-            this.cx = this.mapWidth;
- 
-        if(this.cy<0)
-            this.cy = 0;
-        else if(this.cy>this.mapHeight)
-            this.cy = this.mapHeight;
-    }
-    // update 4 vertices based on the rotation angle and their original position
-    // top-left
-    this.vertices[0] = {
-        x: Math.floor(this.cx + cos*-this.h_width-sin*-this.h_height),
-        y: Math.floor(this.cy + sin*-this.h_width+cos*-this.h_height)
-    };
-    // top-right
-    this.vertices[1] = {
-        x: Math.floor(this.cx + cos*this.h_width-sin*-this.h_height),
-        y: Math.floor(this.cy + sin*this.h_width+cos*-this.h_height)
-    };
-    // bottom-right
-    this.vertices[2] = {
-        x: Math.floor(this.cx + cos*this.h_width-sin*this.h_height),
-        y: Math.floor(this.cy + sin*this.h_width+cos*this.h_height)
-    };
-    // left-bottom
-    this.vertices[3] = {
-        x: Math.floor(this.cx + cos*-this.h_width-sin*this.h_height),
-        y: Math.floor(this.cy + sin*-this.h_width+cos*this.h_height)
-    };
-    // ...
-var friction = ROAD_FRICTION;
- 
-for(var i=0;i<_car.vertices.length;i++)
-{
-    var p = _car.vertices[i];
+<!DOCTYPE html>
+<html lang="en">
 
-    var index = Math.floor((p.x+p.y*_imageData.width)*4+3);
+<head>
+    <meta charset="UTF-8">
+    <title>Car Racing Game</title>
+    <style>
+        #container {
+            position: relative;
+            height: 100vh;
+            top: 0%;
+        }
 
-    if(_imageData.data[index]!=0)
-    {
-        _context.beginPath();
-        _context.arc(p.x, p.y, 4, 0 , 2 * Math.PI, false);
-        _context.fill();
-        // increase the friction by 0.05 for each vertex (or wheel) collide with grass
-        friction += GRASS_FRICTION;
-        //break;
-    }
-}
+        .button_1,
+        .button_2,
+        .button_3,
+        .button_4 {
+            position: absolute;
+            padding: 15px 25px;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: red;
+            background-color: rgb(235, 235, 34);
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            left: 75%;
+            min-width: 300px;
+        }
 
-_car.friction = friction;
-// ...
+        .button_1 {
+            top: 250px;
+        }
+
+        .button_2 {
+            top: 350px;
+        }
+
+        .button_3 {
+            top: 450px;
+        }
+
+        .button_4 {
+            top: 550px;
+        }
+
+        .button_1:hover,
+        .button_2:hover,
+        .button_3:hover,
+        .button_4:hover {
+            background-color: #3e8e41
+        }
+
+        .button_1:active,
+        .button_2:active,
+        .button_3:active,
+        .button_4:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .pic {
+            /* The image used */
+            background-image: url("temp.jpeg");
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        p {
+            position: absolute;
+            top: -140px;
+            left: 25%;
+            color: rgb(235, 235, 34);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 140px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pic" id="container">
+        <p>ℂ𝔸ℝ ℝ𝔸ℂ𝔼</p>
+        <button id="single_player" class="button_1">SINGLE PLAYER</button>
+        <button id="dual_player" class="button_2">DUAL PLAYER</button>
+        <button id="tutorial" class="button_3">TUTORIAL</button>
+        <button id="about" class="button_4">ABOUT</button>
+    </div>
+
+    <script type="text/javascript">
+        document.getElementById("single_player").onclick = function () {
+            location.href = "Single_player.html";
+        };
+        document.getElementById("dual_player").onclick = function () {
+            location.href = "multi_player.html";
+        };
+        document.getElementById("tutorial").onclick = function () {
+            location.href = "tutorial.html";
+        };
+        document.getElementById("about").onclick = function () {
+            location.href = "about.html";
+        };
+    </script>
+</body>
+
+</html>
+        
+     
+
+    
