@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/16939d65-0a33-4362-a08c-dc3b659d2bac)
 Giới thiệu game đua xe
 Đua xe
 Đây là dự án cuối cùng cho khóa học Công nghệ Web-1. Đây là trò chơi đua xe được tạo bằng HTML, CSS, JavaScript và jQuery. Trò chơi đang trong giai đoạn phát triển và một số tính năng có thể hoạt động hoặc không. Một số tính năng sẽ sớm được thêm vào.
